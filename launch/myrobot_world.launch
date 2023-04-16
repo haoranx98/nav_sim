@@ -16,7 +16,8 @@
   
   <!-- Load the URDF into the ROS Parameter Server -->
   <arg name="model" default="$(find nav_sim)/urdf/myrobot.xacro" />
-  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+  <!-- <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" /> -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find mybot_description)/urdf/mybot.xacro'"/>
  
   <!-- Run a python script to send a service call the gazebo_ros to spawn a URDF robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
